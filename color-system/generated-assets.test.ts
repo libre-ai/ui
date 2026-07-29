@@ -21,8 +21,6 @@ describe("generated color-system deliverables", () => {
       join(
         import.meta.dir,
         "..",
-        "..",
-        "..",
         "third_party",
         "dtcg-format-2025.10",
         "dtcg-format-2025.10.schema.json",
