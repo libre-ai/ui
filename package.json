@@ -76,7 +76,7 @@
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "tailwindcss": "4.3.2",
-    "@libre-ai/governance": "github:libre-ai/governance#9511c4087f284d0242fc4a202b2f1452228c16c3",
+    "@libre-ai/governance": "github:libre-ai/governance#8b641394ed436fe68f03fe0c2073b4fe978dd3ac",
     "@biomejs/biome": "2.5.3",
     "@types/bun": "1.3.14",
     "typescript": "7.0.2",
