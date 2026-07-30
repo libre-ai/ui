@@ -51,3 +51,19 @@ resolve real JavaScript with no extra toolchain; Bun keeps running the
 TypeScript source directly (the `bun` export condition points at `src/`), and
 types resolve from the shipped source. The `dist/` is a release-time artifact
 (built during the publish workflow, never committed).
+
+## État du projet
+
+<!-- libre-ai:project-status:begin -->
+<!-- Section générée depuis project.v1.yaml — ne pas éditer à la main. -->
+
+- Situation actuelle : Née verte en γ 3.4 (verdie au bump de gabarit suivant, tracé à l'index) ; porte l'ascendance packages/design-system.
+- Maturité : usable
+- Exposition : spec-published
+- Confiance : medium
+- Preuves vérifiées le : 2026-07-30
+- Avancement : 50 % du périmètre actuellement déclaré
+
+<!-- libre-ai:project-status:end -->
+
+La fiche [`project.v1.yaml`](./project.v1.yaml) est l'autorité de l'état du projet ; cette section en est générée et le gate de flotte échoue si elles divergent.
