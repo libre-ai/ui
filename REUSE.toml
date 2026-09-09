@@ -16,3 +16,9 @@ path = ["third_party/dtcg-format-2025.10/**"]
 precedence = "override"
 SPDX-FileCopyrightText = "W3C Design Tokens Community Group"
 SPDX-License-Identifier = "W3C-20150513"
+
+[[annotations]]
+path = ["src/assets/libre-ai-mark.svg"]
+precedence = "override"
+SPDX-FileCopyrightText = "2026 Libre AI contributors"
+SPDX-License-Identifier = "LicenseRef-Libre-AI-Brand-1.0"

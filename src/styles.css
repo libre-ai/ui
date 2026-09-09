@@ -211,6 +211,79 @@
     font-weight: 650;
   }
 
+  .lai-brand-mark {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    flex: none;
+  }
+
+  .lai-brand-lockup {
+    display: inline-flex;
+    gap: var(--lai-space-2);
+    align-items: center;
+    color: var(--lai-color-ink);
+    font-weight: 750;
+  }
+
+  .lai-brand-lockup__product {
+    padding-inline-start: var(--lai-space-2);
+    border-inline-start: 0.1rem solid var(--lai-color-border);
+    color: var(--lai-color-muted);
+    font-weight: 600;
+  }
+
+  .lai-open-frame {
+    position: relative;
+    padding: var(--lai-space-6);
+    border: 0.1rem solid var(--lai-color-border);
+    background: var(--lai-color-surface);
+  }
+
+  .lai-open-frame::before {
+    position: absolute;
+    inset-block-start: -0.2rem;
+    inset-inline-end: var(--lai-space-6);
+    width: var(--lai-space-8);
+    height: 0.3rem;
+    background: var(--lai-color-surface);
+    content: "";
+  }
+
+  .lai-evidence h3,
+  .lai-product-signature h3 {
+    margin-block-start: 0;
+  }
+
+  .lai-evidence dl,
+  .lai-project-status {
+    display: grid;
+    gap: var(--lai-space-2);
+    margin-block-end: 0;
+  }
+
+  .lai-evidence__row {
+    display: grid;
+    grid-template-columns: minmax(7rem, 0.35fr) 1fr;
+    gap: var(--lai-space-3);
+  }
+
+  .lai-evidence__row dt {
+    color: var(--lai-color-muted);
+    font-size: 0.75rem;
+    font-weight: 750;
+    letter-spacing: 0.06em;
+  }
+
+  .lai-evidence__row dd {
+    margin: 0;
+  }
+
+  .lai-product-signature {
+    display: grid;
+    gap: var(--lai-space-3);
+  }
+
   .lai-enhanced-only {
     display: none;
   }
