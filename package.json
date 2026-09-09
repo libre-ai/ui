@@ -52,11 +52,13 @@
     "check:toolchain": "bun run check:bun && bun node_modules/@libre-ai/governance/tools/quality/check-toolchain.ts",
     "check:secret-scan": "bun run check:bun:runtime && bun node_modules/@libre-ai/governance/tools/quality/check-secret-scan.ts",
     "check:personal-data": "bun run check:bun:runtime && bun node_modules/@libre-ai/governance/tools/quality/check-personal-data-boundary.ts",
+    "generate:colors": "bun run check:bun:runtime && bun color-system/generate.ts && bun color-system/adopt.ts",
+    "check:colors": "bun run check:bun:runtime && bun color-system/generate.ts --check && bun color-system/adopt.ts --check",
     "lint": "bun run check:bun:runtime && biome ci .",
     "typecheck": "bun run check:bun:runtime && tsc --noEmit -p tsconfig.json",
     "pretest": "bun run check:bun",
     "test": "bun test",
-    "check": "bun run check:bun && bun run check:toolchain && bun run check:secret-scan && bun run check:personal-data && bun run lint && bun run typecheck && bun run test",
+    "check": "bun run check:bun && bun run check:toolchain && bun run check:secret-scan && bun run check:personal-data && bun run check:colors && bun run lint && bun run typecheck && bun run test",
     "build": "bun run check:bun && bun run check:bun:runtime && bun build src/index.ts src/tailwind.ts --outdir dist --target browser --format esm --production --external react --external react-dom --external react-aria-components --external 'react-aria-components/*' --external tailwindcss"
   },
   "dependencies": {

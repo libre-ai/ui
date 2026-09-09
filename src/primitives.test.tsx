@@ -4,6 +4,15 @@ import { ActionButton, SkipLink, StatusMessage, Surface } from "./primitives";
 import { buildTailwindUtilities } from "./tailwind";
 
 describe("accessible design primitives", () => {
+  test("derives production component colors only from adopted semantic tokens", async () => {
+    const stylesheet = await Bun.file(new URL("./styles.css", import.meta.url)).text();
+    const colorLiterals = stylesheet.match(/#[0-9a-f]{3,8}\b|\brgb\(|\bhsl\(|\boklch\(/gi) ?? [];
+
+    expect(stylesheet.startsWith('@import "./tokens.css";')).toBe(true);
+    expect(colorLiterals).toEqual([]);
+    expect(stylesheet).toContain("--lai-color-accent: var(--lai-color-action-primary);");
+  });
+
   test("renders semantic controls and landmarks without client JavaScript", () => {
     const markup = renderToStaticMarkup(
       <>

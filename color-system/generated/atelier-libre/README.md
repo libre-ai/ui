@@ -2,7 +2,7 @@
 
 > Un atelier logiciel constructif où le carbone végétal, le jade et l’ambre rendent les assemblages et les prises visibles.
 
-**Statut :** exploration non normative. Les fichiers générés n’activent aucun changement dans `packages/ui/src/styles.css`.
+**Statut :** exploration non normative. Ces fichiers ne sont jamais importés par les composants de production.
 
 Cette direction privilégie l’action, la réparation et l’assemblage. Le jade n’est pas fluorescent et l’ambre évoque l’outil, le matériau et le chantier plutôt que la magie.
 

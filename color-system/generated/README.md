@@ -1,15 +1,15 @@
-# Exploration du système de couleurs Libre AI
+# Système de couleurs Libre AI
 
-**Statut : exploration non normative — décision humaine requise avant adoption.**
+**Statut : Envol constructif est adopté ; les quatre directions initiales restent des explorations non normatives.**
 
-Cette exploration sépare strictement :
+Ce système sépare strictement :
 
 1. les primitives OKLCH et leurs replis sRGB ;
 2. les rôles sémantiques indépendants des noms de couleur ;
 3. les tokens de composants ;
 4. les projections CSS, DTCG et Tailwind 4.3.
 
-Aucune proposition ne modifie les tokens de production de `packages/ui/src/styles.css`.
+Seule la convergence Envol constructif génère les tokens de production dans `src/tokens.css`. Les quatre explorations ne sont jamais importées par les composants.
 
 ## Propositions
 
@@ -70,16 +70,16 @@ Ne pas combiner les palettes en additionnant leurs couleurs. La convergence reti
 
 [Envol constructif](./convergence/README.md) combine le graphite chaud de Libre Tech, le jade constructif d’Atelier libre et un iris ardoise secondaire. Le cobalt/turquoise et le corail ne deviennent pas des accents de marque : ils restent disponibles dans les familles fonctionnelles information/danger ou dans la visualisation avec redondance.
 
-## Décisions nécessitant encore un arbitrage humain
+## Décisions d’adoption
 
-1. Le **jade** doit-il rester la couleur principale de continuité ou l’**iris** devenir le signe distinctif principal ?
-2. Jusqu’où réchauffer le graphite sans donner une tonalité éditoriale patrimoniale ?
-3. Les produits reçoivent-ils une secondaire stable ou une sélection contextuelle issue de la palette catégorielle ?
-4. Le corail est-il autorisé dans la communication communautaire alors qu’il jouxte la famille danger ?
-5. Le mode sombre standard doit-il être plus doux que le terminal, ou partager exactement son fond ?
-6. Quelle reproduction CMJN/PDF-X est acceptée pour les supports imprimés ?
+1. Le **jade** porte la marque et l’action primaire ; l’**iris** reste une différenciation secondaire rare.
+2. Le graphite chaud porte les surfaces claires et sombres sans noir absolu.
+3. Les produits ne reçoivent aucune couleur permanente assimilable à un état.
+4. Les familles corail, ambre, vert et bleu restent fonctionnelles.
+5. Jade et iris ne forment jamais un dégradé.
+6. La reproduction CMJN/PDF-X reste hors de la preuve numérique actuelle et exige une qualification physique séparée.
 
-## Prototypes et tests avant adoption
+## Qualification après adoption
 
 - Test de reconnaissance sans logo : page d’accueil, documentation et agent board mélangés à des références concurrentes.
 - Test de compréhension des états avec achromatopsie simulée et sans légende couleur.

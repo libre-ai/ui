@@ -2,7 +2,7 @@
 
 > Une infrastructure minérale, fiable et lisible, activée par un cobalt mesuré et un turquoise technique.
 
-**Statut :** exploration non normative. Les fichiers générés n’activent aucun changement dans `packages/ui/src/styles.css`.
+**Statut :** exploration non normative. Ces fichiers ne sont jamais importés par les composants de production.
 
 La palette assume une posture de fondation et de confiance sans reprendre le bleu institutionnel européen. Les gris minéraux organisent les surfaces ; cobalt et turquoise sont réservés aux actions, flux et preuves.
 

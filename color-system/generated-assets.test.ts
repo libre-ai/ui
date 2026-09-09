@@ -16,6 +16,28 @@ interface AuditReport {
 }
 
 describe("generated color-system deliverables", () => {
+  test("marks only Envol constructif as adopted and normative", async () => {
+    const convergence = await Bun.file(
+      join(GENERATED_DIRECTORY, "convergence", "tokens.json"),
+    ).json();
+    expect(convergence.$extensions.libreAI.status).toBe("adopted");
+    expect(convergence.$extensions.libreAI.normative).toBe(true);
+    const convergenceReadme = await Bun.file(
+      join(GENERATED_DIRECTORY, "convergence", "README.md"),
+    ).text();
+    expect(convergenceReadme).toContain("**Statut :** adoptée et normative.");
+    const indexReadme = await Bun.file(join(GENERATED_DIRECTORY, "README.md")).text();
+    expect(indexReadme).toContain("Envol constructif est adopté");
+    expect(indexReadme).toContain("## Décisions d’adoption");
+    expect(indexReadme).not.toContain("## Décisions nécessitant encore un arbitrage humain");
+
+    for (const slug of PALETTES.map(({ slug }) => slug)) {
+      const exploration = await Bun.file(join(GENERATED_DIRECTORY, slug, "tokens.json")).json();
+      expect(exploration.$extensions.libreAI.status).toBe("exploration");
+      expect(exploration.$extensions.libreAI.normative).toBe(false);
+    }
+  });
+
   test("emits complete DTCG 2025.10 token files", async () => {
     const schema = await Bun.file(
       join(

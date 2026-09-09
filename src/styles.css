@@ -1,17 +1,18 @@
+@import "./tokens.css";
+
 @layer reset, tokens, base, components, utilities;
 
 @layer tokens {
   :root {
     color-scheme: light dark;
-    --lai-color-canvas: #f7f6f0;
-    --lai-color-surface: #ffffff;
-    --lai-color-ink: #171a1f;
-    --lai-color-muted: #4e5968;
-    --lai-color-border: #697586;
-    --lai-color-accent: #075e54;
-    --lai-color-accent-strong: #043f38;
-    --lai-color-on-accent: #ffffff;
-    --lai-color-focus: #c2410c;
+    --lai-color-canvas: var(--lai-color-background);
+    --lai-color-ink: var(--lai-color-text-primary);
+    --lai-color-muted: var(--lai-color-text-muted);
+    --lai-color-border: var(--lai-color-border-default);
+    --lai-color-accent: var(--lai-color-action-primary);
+    --lai-color-accent-strong: var(--lai-color-action-primary-hover);
+    --lai-color-on-accent: var(--lai-color-text-inverse);
+    --lai-color-focus: var(--lai-color-focus-ring);
     --lai-space-1: 0.25rem;
     --lai-space-2: 0.5rem;
     --lai-space-3: 0.75rem;
@@ -21,26 +22,11 @@
     --lai-space-12: 3rem;
     --lai-radius-sm: 0.35rem;
     --lai-radius-md: 0.75rem;
-    --lai-shadow: 0 0.5rem 1.5rem rgb(23 26 31 / 0.09);
+    --lai-shadow: 0 0.5rem 1.5rem color-mix(in srgb, var(--lai-color-ink) 9%, transparent);
     --lai-content: 72rem;
     --lai-measure: 68ch;
     --lai-font-sans:
       ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --lai-color-canvas: #111718;
-      --lai-color-surface: #192223;
-      --lai-color-ink: #f6f7f2;
-      --lai-color-muted: #c4ccca;
-      --lai-color-border: #97a6a3;
-      --lai-color-accent: #75d5c6;
-      --lai-color-accent-strong: #a5eee3;
-      --lai-color-on-accent: #062d28;
-      --lai-color-focus: #ffb37a;
-      --lai-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 0.28);
-    }
   }
 }
 

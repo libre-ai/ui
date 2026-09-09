@@ -248,8 +248,8 @@ function generateDtcgTokens(system: ColorSystem): string {
         libreAI: {
           format: FORMAT_VERSION,
           proposal: system.definition.slug,
-          status: system.definition.slug === "convergence" ? "candidate" : "exploration",
-          normative: false,
+          status: system.definition.slug === "convergence" ? "adopted" : "exploration",
+          normative: system.definition.slug === "convergence",
         },
       },
       primitive,
@@ -390,7 +390,7 @@ function primitiveDeclarations(system: ColorSystem, format: CssColorFormat): str
     .join("\n");
 }
 
-function generateCss(system: ColorSystem): string {
+export function generateCss(system: ColorSystem): string {
   const fallbackPrimitives = primitiveDeclarations(system, "fallback");
   const modernPrimitives = primitiveDeclarations(system, "oklch");
   const fallbackSemantics = formatThemeBlocks(system, "fallback", "semantic");
@@ -655,7 +655,11 @@ function colorVisionSummary(system: ColorSystem): string {
 
 function proposalMarkdown(system: ColorSystem): string {
   const definition = system.definition;
-  return `# ${definition.name}\n\n> ${definition.intention}\n\n**Statut :** exploration non normative. Les fichiers générés n’activent aucun changement dans \`packages/ui/src/styles.css\`.\n\n${definition.description}\n\n## Avantages\n\n${definition.advantages.map((item) => `- ${item}`).join("\n")}\n\n## Risques\n\n${definition.risks.map((item) => `- ${item}`).join("\n")}\n\n## Associations culturelles possibles\n\n${definition.culturalAssociations.map((item) => `- ${item}`).join("\n")}\n\n## Associations interdites ou déconseillées\n\n${definition.forbiddenAssociations.map((item) => `- ${item}`).join("\n")}\n\n## Échelles primitives\n\nLes valeurs OKLCH sont les valeurs de conception après gamut mapping sRGB honnête. HEX/RGB sont les replis calculés. Les canaux alpha existent en versions destinées aux surfaces claires et sombres ; aucun alpha critique n’est utilisé dans les rôles d’action, de focus, de texte ou de statut.\n\n${scaleTables(system)}\n\n## Thèmes et tokens sémantiques\n\n${semanticTables(system)}\n\n## États et composants\n\nLes rôles \`state-hover\`, \`state-active\`, \`state-selected\`, \`state-disabled-*\` et \`state-focus\` restent sémantiques. Le groupe \`component\` du fichier DTCG mappe ensuite boutons, terminal et diff Git vers ces rôles ou vers des primitives documentées. \`action-secondary\` reste neutre et structure un bouton outline ; \`brand-secondary\` porte la couleur secondaire rare sans créer deux CTA concurrents. Les statuts conservent texte, icône et structure ; la couleur n’est jamais l’unique signal.\n\n## Code, terminal et diffs Git\n\n- Le code possède des rôles distincts pour fond, texte, commentaire, mot-clé, chaîne, nombre, fonction, variable, opérateur, bord et ligne active.\n- Les diffs ont pour chaque état un fond, un texte et une bordure ; les signes \`+\`, \`~\`, \`−\` et les libellés restent obligatoires.\n- Le terminal utilise un fond opaque, un texte principal et des canaux prompt/commande/succès/attention/erreur/information mesurés.\n\n## Visualisation de données\n\n${visualizationTables(system)}\n\nLes catégories doivent toujours être doublées par labels, formes, motifs ou styles de ligne. Les rampes séquentielles ne codent qu’une grandeur ordonnée ; la rampe divergente exige un point médian explicitement nommé.\n\n## Contrastes calculés\n\n${contrastTables(system)}\n\n## Échecs WCAG explicitement détectés\n\n${explicitFailureSummary(system)}\n\n\`border-subtle\` est réservé aux séparateurs non essentiels et n’est jamais accepté comme seule frontière d’un contrôle. Les contrôles utilisent \`border-default\`.\n\n## Présélection daltonisme\n\n${colorVisionSummary(system)}\n\nCette simulation est un filtre de conception, pas un test clinique.\n\n## Aperçus fournis\n\nLe fichier [preview.html](./preview.html) applique la proposition à :\n\n1. une page d’accueil ;\n2. une documentation technique ;\n3. une interface de gestion d’agents ;\n4. un terminal/journal d’exécution ;\n5. une page de repository de type GitHub ;\n6. un diagramme d’architecture.\n\n## Notes\n\n- [theme.css](./theme.css) : primitives, thèmes, forced-colors et composants ;\n- [tokens.json](./tokens.json) : format DTCG 2025.10 ;\n- [tailwind.css](./tailwind.css) : configuration CSS-first Tailwind 4.3 avec \`@theme inline\` ;\n- [audit.json](./audit.json) : mesures et limites machine-lisibles.\n\n## Évaluation\n\n| Critère | Note |\n| --- | ---: |\n${scoreTable(definition)}\n| **Moyenne** | **${scoreAverage(definition).toFixed(2)}/10** |\n`;
+  const status =
+    definition.slug === "convergence"
+      ? "adoptée et normative. `src/tokens.css` en est la projection de production générée."
+      : "exploration non normative. Ces fichiers ne sont jamais importés par les composants de production.";
+  return `# ${definition.name}\n\n> ${definition.intention}\n\n**Statut :** ${status}\n\n${definition.description}\n\n## Avantages\n\n${definition.advantages.map((item) => `- ${item}`).join("\n")}\n\n## Risques\n\n${definition.risks.map((item) => `- ${item}`).join("\n")}\n\n## Associations culturelles possibles\n\n${definition.culturalAssociations.map((item) => `- ${item}`).join("\n")}\n\n## Associations interdites ou déconseillées\n\n${definition.forbiddenAssociations.map((item) => `- ${item}`).join("\n")}\n\n## Échelles primitives\n\nLes valeurs OKLCH sont les valeurs de conception après gamut mapping sRGB honnête. HEX/RGB sont les replis calculés. Les canaux alpha existent en versions destinées aux surfaces claires et sombres ; aucun alpha critique n’est utilisé dans les rôles d’action, de focus, de texte ou de statut.\n\n${scaleTables(system)}\n\n## Thèmes et tokens sémantiques\n\n${semanticTables(system)}\n\n## États et composants\n\nLes rôles \`state-hover\`, \`state-active\`, \`state-selected\`, \`state-disabled-*\` et \`state-focus\` restent sémantiques. Le groupe \`component\` du fichier DTCG mappe ensuite boutons, terminal et diff Git vers ces rôles ou vers des primitives documentées. \`action-secondary\` reste neutre et structure un bouton outline ; \`brand-secondary\` porte la couleur secondaire rare sans créer deux CTA concurrents. Les statuts conservent texte, icône et structure ; la couleur n’est jamais l’unique signal.\n\n## Code, terminal et diffs Git\n\n- Le code possède des rôles distincts pour fond, texte, commentaire, mot-clé, chaîne, nombre, fonction, variable, opérateur, bord et ligne active.\n- Les diffs ont pour chaque état un fond, un texte et une bordure ; les signes \`+\`, \`~\`, \`−\` et les libellés restent obligatoires.\n- Le terminal utilise un fond opaque, un texte principal et des canaux prompt/commande/succès/attention/erreur/information mesurés.\n\n## Visualisation de données\n\n${visualizationTables(system)}\n\nLes catégories doivent toujours être doublées par labels, formes, motifs ou styles de ligne. Les rampes séquentielles ne codent qu’une grandeur ordonnée ; la rampe divergente exige un point médian explicitement nommé.\n\n## Contrastes calculés\n\n${contrastTables(system)}\n\n## Échecs WCAG explicitement détectés\n\n${explicitFailureSummary(system)}\n\n\`border-subtle\` est réservé aux séparateurs non essentiels et n’est jamais accepté comme seule frontière d’un contrôle. Les contrôles utilisent \`border-default\`.\n\n## Présélection daltonisme\n\n${colorVisionSummary(system)}\n\nCette simulation est un filtre de conception, pas un test clinique.\n\n## Aperçus fournis\n\nLe fichier [preview.html](./preview.html) applique la proposition à :\n\n1. une page d’accueil ;\n2. une documentation technique ;\n3. une interface de gestion d’agents ;\n4. un terminal/journal d’exécution ;\n5. une page de repository de type GitHub ;\n6. un diagramme d’architecture.\n\n## Notes\n\n- [theme.css](./theme.css) : primitives, thèmes, forced-colors et composants ;\n- [tokens.json](./tokens.json) : format DTCG 2025.10 ;\n- [tailwind.css](./tailwind.css) : configuration CSS-first Tailwind 4.3 avec \`@theme inline\` ;\n- [audit.json](./audit.json) : mesures et limites machine-lisibles.\n\n## Évaluation\n\n| Critère | Note |\n| --- | ---: |\n${scoreTable(definition)}\n| **Moyenne** | **${scoreAverage(definition).toFixed(2)}/10** |\n`;
 }
 
 function previewStyles(): string {
@@ -819,9 +823,42 @@ function masterReadme(systems: readonly ColorSystem[]): string {
     )}\n\nLes notes sont une aide à la décision, pas une vérité de marque. Elles doivent être confrontées aux prototypes et aux publics.\n\n## Éléments combinables\n\n- **Libre Tech :** graphite chaud, discipline éditoriale et iris minéral.\n- **Atelier libre :** jade outil, langage de construction et capacité d’action.\n- **Infrastructure européenne :** cartographie des surfaces sombres et contraste renforcé.\n- **Commun vivant :** chaleur des contenus publics et usage extrêmement rare du corail, hors statuts critiques.\n\nNe pas combiner les palettes en additionnant leurs couleurs. La convergence retient un rôle précis de chaque direction.\n\n## Palette de convergence\n\n[${convergence.definition.name}](./convergence/README.md) combine le graphite chaud de Libre Tech, le jade constructif d’Atelier libre et un iris ardoise secondaire. Le cobalt/turquoise et le corail ne deviennent pas des accents de marque : ils restent disponibles dans les familles fonctionnelles information/danger ou dans la visualisation avec redondance.\n\n## Décisions nécessitant encore un arbitrage humain\n\n1. Le **jade** doit-il rester la couleur principale de continuité ou l’**iris** devenir le signe distinctif principal ?\n2. Jusqu’où réchauffer le graphite sans donner une tonalité éditoriale patrimoniale ?\n3. Les produits reçoivent-ils une secondaire stable ou une sélection contextuelle issue de la palette catégorielle ?\n4. Le corail est-il autorisé dans la communication communautaire alors qu’il jouxte la famille danger ?\n5. Le mode sombre standard doit-il être plus doux que le terminal, ou partager exactement son fond ?\n6. Quelle reproduction CMJN/PDF-X est acceptée pour les supports imprimés ?\n\n## Prototypes et tests avant adoption\n\n- Test de reconnaissance sans logo : page d’accueil, documentation et agent board mélangés à des références concurrentes.\n- Test de compréhension des états avec achromatopsie simulée et sans légende couleur.\n- Parcours clavier/lecteur d’écran et forced-colors sur les composants réels.\n- Comparaison sur appareils LCD/OLED, luminosité basse et forte lumière ambiante.\n- Revue des six aperçus avec contributeurs techniques, publics non techniques et mainteneurs.\n- Test de 8 séries catégorielles sous protanopie, deutéranopie et tritanopie ; réduire à 6 catégories si les formes ne suffisent pas.\n- Épreuve papier réelle avant toute promesse print.\n- Test longitudinal : reconnaître la direction après retrait des effets, illustrations et motion.\n\n## Limites de conformité\n\nLes audits couvrent les associations de tokens listées. Ils ne constituent ni certification WCAG globale, ni validation d’un composant, ni preuve de lisibilité d’une page complète. Les aperçus doivent être remplacés par des tests multi-moteurs après adoption dans les composants.\n\n## Tailwind CSS\n\nChaque proposition fournit un fichier \`tailwind.css\` CSS-first pour Tailwind 4.3. Il importe le thème puis expose uniquement les rôles sémantiques via \`@theme inline\`. Les primitives ne deviennent donc pas des utilitaires de composants. Cette syntaxe suit la documentation officielle \`/tailwindlabs/tailwindcss.com\`.\n`;
 }
 
+function adoptedMasterReadme(systems: readonly ColorSystem[]): string {
+  const pendingDecisions = `## Décisions nécessitant encore un arbitrage humain
+
+1. Le **jade** doit-il rester la couleur principale de continuité ou l’**iris** devenir le signe distinctif principal ?
+2. Jusqu’où réchauffer le graphite sans donner une tonalité éditoriale patrimoniale ?
+3. Les produits reçoivent-ils une secondaire stable ou une sélection contextuelle issue de la palette catégorielle ?
+4. Le corail est-il autorisé dans la communication communautaire alors qu’il jouxte la famille danger ?
+5. Le mode sombre standard doit-il être plus doux que le terminal, ou partager exactement son fond ?
+6. Quelle reproduction CMJN/PDF-X est acceptée pour les supports imprimés ?`;
+  const adoptedDecisions = `## Décisions d’adoption
+
+1. Le **jade** porte la marque et l’action primaire ; l’**iris** reste une différenciation secondaire rare.
+2. Le graphite chaud porte les surfaces claires et sombres sans noir absolu.
+3. Les produits ne reçoivent aucune couleur permanente assimilable à un état.
+4. Les familles corail, ambre, vert et bleu restent fonctionnelles.
+5. Jade et iris ne forment jamais un dégradé.
+6. La reproduction CMJN/PDF-X reste hors de la preuve numérique actuelle et exige une qualification physique séparée.`;
+
+  return masterReadme(systems)
+    .replace("# Exploration du système de couleurs Libre AI", "# Système de couleurs Libre AI")
+    .replace(
+      "**Statut : exploration non normative — décision humaine requise avant adoption.**",
+      "**Statut : Envol constructif est adopté ; les quatre directions initiales restent des explorations non normatives.**",
+    )
+    .replace("Cette exploration sépare strictement :", "Ce système sépare strictement :")
+    .replace(
+      "Aucune proposition ne modifie les tokens de production de `packages/ui/src/styles.css`.",
+      "Seule la convergence Envol constructif génère les tokens de production dans `src/tokens.css`. Les quatre explorations ne sont jamais importées par les composants.",
+    )
+    .replace(pendingDecisions, adoptedDecisions)
+    .replace("## Prototypes et tests avant adoption", "## Qualification après adoption");
+}
+
 async function buildFiles(): Promise<readonly GeneratedFile[]> {
   const systems = [...PALETTES, CONVERGENCE].map(buildColorSystem);
-  const files: GeneratedFile[] = [{ path: "README.md", content: masterReadme(systems) }];
+  const files: GeneratedFile[] = [{ path: "README.md", content: adoptedMasterReadme(systems) }];
   for (const system of systems) {
     const directory = system.definition.slug;
     const css = generateCss(system);
@@ -881,4 +918,6 @@ async function main(): Promise<void> {
   console.log(`Color system generated (${files.length} files)`);
 }
 
-await main();
+if (import.meta.main) {
+  await main();
+}

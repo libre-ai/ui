@@ -2,7 +2,7 @@
 
 > Une ingénierie ouverte, calme et précise, rendue habitable par un iris minéral et un jade discret.
 
-**Statut :** exploration non normative. Les fichiers générés n’activent aucun changement dans `packages/ui/src/styles.css`.
+**Statut :** exploration non normative. Ces fichiers ne sont jamais importés par les composants de production.
 
 Le graphite légèrement chaud porte la documentation et les outils. L’iris désaturé structure l’action sans reprendre le violet électrique des produits IA ; le jade signale l’ouverture et les communs sans basculer dans le vert hacker.
 

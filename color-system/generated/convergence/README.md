@@ -2,7 +2,7 @@
 
 > Le calme éditorial de Libre Tech rencontre la capacité d’action d’Atelier libre.
 
-**Statut :** exploration non normative. Les fichiers générés n’activent aucun changement dans `packages/ui/src/styles.css`.
+**Statut :** adoptée et normative. `src/tokens.css` en est la projection de production générée.
 
 Un graphite chaud accueille les contenus longs ; un jade minéral porte l’action et la continuité de marque ; un iris ardoise différencie produits, preuves et contributions sans devenir un dégradé IA.
 

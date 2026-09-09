@@ -1,7 +1,9 @@
-# Libre AI color-system exploration
+# Libre AI color system
 
-This directory contains a non-normative, generated comparison of four color directions and one
-convergence candidate. It does not change the published `@libre-ai/ui` color tokens.
+This directory contains four non-normative explorations and the adopted Envol
+constructif convergence. The adopted palette deterministically generates
+`src/tokens.css`; production components consume that file and never import an
+exploration directory.
 
 ## Source and generated artifacts
 
@@ -9,8 +11,10 @@ convergence candidate. It does not change the published `@libre-ai/ui` color tok
 - `color.ts` owns deterministic OKLCH gamut mapping, sRGB fallbacks, WCAG contrast and
   color-vision screening primitives.
 - `system.ts` owns primitive scales, semantic roles, component mappings and visualization ramps.
-- `generate.ts` produces the DTCG JSON, CSS, Tailwind CSS 4.3 configuration, audits, reports and
-  previews under `generated/`.
+- `generate.ts` produces the DTCG JSON, CSS, Tailwind CSS 4.3 configuration,
+  audits, reports and previews under `generated/`.
+- `adopt.ts` projects only `CONVERGENCE` into the production `src/tokens.css`
+  file and provides a byte-drift check.
 - `color-system.test.ts` verifies scale completeness, gamut safety, semantic coverage, critical
   contrast, code/diff readability and categorical screening.
 - `generated-assets.test.ts` validates generated tokens against the pinned official DTCG 2025.10
@@ -22,13 +26,16 @@ The generated reports are in [`generated/README.md`](./generated/README.md).
 ## Commands
 
 ```sh
-bun packages/ui/color-system/generate.ts
-bun packages/ui/color-system/generate.ts --check
-bun test packages/ui/color-system/*.test.ts
+bun color-system/generate.ts
+bun color-system/adopt.ts
+bun run check:colors
+bun test color-system/*.test.ts
 ```
 
-## Adoption boundary
+## Adoption decision
 
-Adoption requires an explicit human decision, then a separate implementation change to
-`packages/ui/src/styles.css` and its component/browser evidence. Exploration files must not be
-imported directly by product components.
+The owner selected Envol constructif on 2026-09-09 under the Governance
+ADR-0032 candidate. Jade carries brand and primary action; iris remains a rare
+secondary role; graphite carries surfaces; jade and iris never form a gradient.
+The four initial directions remain non-normative research. Browser evidence and
+figurative-asset publication have their own independent gates.

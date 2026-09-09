@@ -15,9 +15,10 @@ statement:
     - "aucun service tiers, aucune copie non vérifiée — consommation épinglée et gates de dérive"
 summary: "Système de design : composants React, tokens, ascendance design-system."
 current_situation: >-
-  Née verte en γ 3.4 (verdie au bump de gabarit suivant, tracé à l'index) ; porte l'ascendance packages/design-system.
+  Née verte en γ 3.4 (verdie au bump de gabarit suivant, tracé à l'index) ; porte l'ascendance packages/design-system. Envol constructif est la source normative des tokens de production, générée et contrôlée sans dérive.
 scope:
   - "Système de design : composants React, tokens, ascendance design-system."
+  - "Réalisation visuelle de la marque : palette adoptée, composants et assets candidats sous contrôles de publication séparés."
 non_goals:
   - "aucune seconde implémentation durable de ce domaine ailleurs dans la constellation"
 dependencies:
@@ -28,7 +29,7 @@ maturity: usable
 confidence: medium
 exposure: spec-published
 freshness:
-  last_verified_on: "2026-07-30"
+  last_verified_on: "2026-09-09"
 scope_stability: stable
 benchmark:
   none: "n/a (shared brick, no external parity target)"
@@ -47,3 +48,10 @@ phases:
         text: "L'API est couverte par une politique de compatibilité déclarée et un versionnage de rupture outillé."
         weight: 1
         status: pending
+      - id: brand-color-adoption
+        text: "Envol constructif génère les tokens de production ; la dérive, les contrastes critiques, les thèmes sombre et contraste forcé et l'absence de dégradé jade/iris sont bloqués par les gates."
+        weight: 1
+        status: accepted
+        evidence:
+          date: "2026-09-09"
+          reference: "color-system/adopt.test.ts, color-system/generated-assets.test.ts, src/primitives.test.tsx"

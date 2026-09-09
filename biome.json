@@ -6,7 +6,7 @@
     "useIgnoreFile": true
   },
   "files": {
-    "includes": ["**", "!color-system/generated"]
+    "includes": ["**", "!color-system/generated", "!src/tokens.css"]
   },
   "formatter": {
     "enabled": true,

@@ -2,7 +2,7 @@
 
 > Une infrastructure publique et humaine où l’encre, le violet civique, le jade et un corail rare rendent la contribution visible.
 
-**Statut :** exploration non normative. Les fichiers générés n’activent aucun changement dans `packages/ui/src/styles.css`.
+**Statut :** exploration non normative. Ces fichiers ne sont jamais importés par les composants de production.
 
 Cette direction rapproche les outils de leurs communautés. Les surfaces restent sobres, mais la couleur accompagne davantage les appels à contribuer, les corrections et les récits publics.
 

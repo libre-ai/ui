@@ -8,9 +8,10 @@ the public Tailwind v4 compiler to emit a deterministic allow-list of utilities.
 No font, icon, script or style is loaded from a remote origin. Reduced-motion,
 dark-color-scheme and forced-color behavior are CSS-level invariants.
 
-The non-normative [color-system exploration](https://github.com/libre-ai/libre-ai/tree/main/packages/ui/color-system) compares four measured
-OKLCH directions without changing the published foundation. Adoption remains a separate human
-decision and implementation change.
+The adopted **Envol constructif** color system is generated from measured OKLCH
+sources into `src/tokens.css`, including deterministic sRGB fallbacks, dark and
+forced-color modes. Four earlier directions remain non-normative exploration;
+production components do not import them.
 
 ## Quickstart
 
@@ -57,12 +58,12 @@ types resolve from the shipped source. The `dist/` is a release-time artifact
 <!-- libre-ai:project-status:begin -->
 <!-- Section générée depuis project.v1.yaml — ne pas éditer à la main. -->
 
-- Situation actuelle : Née verte en γ 3.4 (verdie au bump de gabarit suivant, tracé à l'index) ; porte l'ascendance packages/design-system.
+- Situation actuelle : Née verte en γ 3.4 (verdie au bump de gabarit suivant, tracé à l'index) ; porte l'ascendance packages/design-system. Envol constructif est la source normative des tokens de production, générée et contrôlée sans dérive.
 - Maturité : usable
 - Exposition : spec-published
 - Confiance : medium
-- Preuves vérifiées le : 2026-07-30
-- Avancement : 50 % du périmètre actuellement déclaré
+- Preuves vérifiées le : 2026-09-09
+- Avancement : 67 % du périmètre actuellement déclaré
 
 <!-- libre-ai:project-status:end -->
 
