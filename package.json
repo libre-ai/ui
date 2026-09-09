@@ -58,11 +58,14 @@
     "generate:brand-assets": "bun run check:bun:runtime && bun tools/generate-brand-assets.ts",
     "check:brand-assets": "bun run check:bun:runtime && bun tools/generate-brand-assets.ts --check",
     "check:brand-publication": "bun run check:bun:runtime && bun tools/generate-brand-assets.ts --publication-check",
+    "build:brand-reference": "bun run check:bun:runtime && bun brand/build-reference.tsx",
+    "check:brand-reference": "bun run check:bun:runtime && bun brand/build-reference.tsx --check",
     "lint": "bun run check:bun:runtime && biome ci .",
     "typecheck": "bun run check:bun:runtime && tsc --noEmit -p tsconfig.json",
     "pretest": "bun run check:bun",
     "test": "bun test",
-    "check": "bun run check:bun && bun run check:toolchain && bun run check:secret-scan && bun run check:personal-data && bun run check:colors && bun run check:brand-assets && bun run lint && bun run typecheck && bun run test",
+    "test:e2e": "bun run check:bun:runtime && env -u NO_COLOR -u FORCE_COLOR playwright test",
+    "check": "bun run check:bun && bun run check:toolchain && bun run check:secret-scan && bun run check:personal-data && bun run check:colors && bun run check:brand-assets && bun run check:brand-reference && bun run lint && bun run typecheck && bun run test",
     "prepublishOnly": "bun run check && bun run check:brand-publication",
     "build": "bun run check:bun && bun run check:bun:runtime && bun build src/index.ts src/tailwind.ts --outdir dist --target browser --format esm --production --external react --external react-dom --external react-aria-components --external 'react-aria-components/*' --external tailwindcss"
   },
@@ -80,17 +83,18 @@
     }
   },
   "devDependencies": {
-    "react": "19.2.7",
-    "react-dom": "19.2.7",
-    "tailwindcss": "4.3.2",
-    "@libre-ai/governance": "github:libre-ai/governance#8c238c09efd443a4866459160dac1cfee31d88be",
     "@biomejs/biome": "2.5.3",
+    "@libre-ai/governance": "github:libre-ai/governance#8c238c09efd443a4866459160dac1cfee31d88be",
+    "@playwright/test": "1.61.1",
     "@types/bun": "1.3.14",
-    "typescript": "7.0.2",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "ajv": "8.20.0",
-    "ajv-formats": "3.0.1"
+    "ajv-formats": "3.0.1",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "tailwindcss": "4.3.2",
+    "typescript": "7.0.2"
   },
   "packageManager": "bun@1.4.0-canary.1",
   "overrides": {
