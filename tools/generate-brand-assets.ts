@@ -12,16 +12,31 @@ export interface BrandAssetReviewDocuments {
   readonly similarityReview: string;
 }
 
+function controlValues(document: string, field: string): readonly string[] {
+  const preamble = document.split(/^##\s/m, 1)[0] ?? "";
+  const prefix = `${field}:`;
+  return preamble
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line.startsWith(prefix))
+    .map((line) => line.slice(prefix.length).trim());
+}
+
+function hasExactControl(document: string, field: string, expected: string): boolean {
+  const values = controlValues(document, field);
+  return values.length === 1 && values[0] === expected;
+}
+
 export function validateBrandAssetPublication(
   documents: BrandAssetReviewDocuments,
 ): readonly string[] {
   const failures: string[] = [];
-  if (!/^License approval: owner-accepted$/m.test(documents.approval)) {
+  if (!hasExactControl(documents.approval, "License approval", "owner-accepted")) {
     failures.push("brand.asset_license_not_accepted");
   }
   if (
-    !/^Status: accepted$/m.test(documents.similarityReview) ||
-    !/^Disposition: owner-accepted$/m.test(documents.similarityReview)
+    !hasExactControl(documents.similarityReview, "Status", "accepted") ||
+    !hasExactControl(documents.similarityReview, "Disposition", "owner-accepted")
   ) {
     failures.push("brand.asset_similarity_review_not_accepted");
   }

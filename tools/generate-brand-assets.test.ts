@@ -48,4 +48,23 @@ describe("constructed swift asset", () => {
       }),
     ).toEqual([]);
   });
+
+  test("does not interpret acceptance examples in the review body as approval", () => {
+    expect(
+      validateBrandAssetPublication({
+        approval: "# Approval\n\nLicense approval: pending",
+        similarityReview: `# Review
+
+Status: pending
+
+## Acceptance control
+
+\`\`\`text
+Status: accepted
+Disposition: owner-accepted
+\`\`\`
+`,
+      }),
+    ).toEqual(["brand.asset_license_not_accepted", "brand.asset_similarity_review_not_accepted"]);
+  });
 });
