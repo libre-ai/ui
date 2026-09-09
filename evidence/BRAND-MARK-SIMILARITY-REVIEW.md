@@ -27,6 +27,32 @@ The candidate must be compared side by side with bird, wing, chevron and open-so
 Trail, Proton, Mullvad, Mozilla, Oxide, LaSuite, Mistral, Element, GitLab and Nextcloud. No absence of
 confusion is claimed until the comparison images and reviewer disposition are recorded here.
 
+### Official-source pre-screening — 2026-09-09
+
+This pre-screening compares the candidate structure with current assets or descriptions published by
+each named organization. It is design-risk triage, not a registry search or legal opinion.
+
+| Reference | Official source | Structural comparison | Risk signal |
+| --- | --- | --- | --- |
+| Trail | https://www.trailhq.com/brand | Maze-like line-drawn `T` built from route switchbacks; the Libre AI candidate is a filled three-part bird. | Low in the reviewed lockups. |
+| Proton | https://proton.me/media/kit | Rounded purple loop/`P` construction; no bird silhouette or central tail. | Low in the reviewed mark. |
+| Mullvad | https://mullvad.net/en/press | Circular illustrated mole-and-helmet device with typography; materially different construction and detail density. | Low. |
+| Mozilla | https://blog.mozilla.org/en/mozilla/mozilla-brand-next-era-of-tech/ | Angular `M` flag and pixel motif. The black geometric language can converge with the candidate at very small sizes even though the silhouette differs. | Medium; small-size comparison required. |
+| Oxide | https://oxide.computer/press | Typographic wordmark whose distinctive devices are a slashed zero and multiplication-sign `X`; no standalone bird device observed. | Low. |
+| LaSuite | https://lasuite.numerique.gouv.fr/fr | Wordmark and shared service-logo system on the accessible official surface; its image assets lacked sufficiently descriptive labels for a complete shape comparison here. | Unresolved; browser capture still required. |
+| Mistral | https://mistral.ai/brand/ | Pixel cat / `M` emblem. Both marks use an angular animal shorthand, but Mistral is stair-stepped and letter-led rather than wing-and-tail led. | Medium-low; compare in monochrome at 16 px. |
+| Element | https://element.io/en/logo | Three rounded strokes in a green circular rotation; shares a three-part count but not axis, silhouette or geometry. | Low. |
+| GitLab | https://about.gitlab.com/press/press-kit/ | Symmetric geometric animal with two pointed lateral masses and a central downward point. In monochrome and at favicon size, this is the closest named silhouette to the candidate. | High enough to block acceptance pending redesign or specialist review. |
+| Nextcloud | https://nextcloud.com/brand | Circular cloud/connected-node device; no animal, wing or downward-tail construction. | Low. |
+
+The GitLab signal is not a finding of infringement. It is a concrete design-quality reason not to
+accept the current mark by default. A revised candidate should break at least two of these shared
+features: bilateral animal symmetry, paired pointed upper masses, and the centered downward point.
+
+The comparison remains incomplete because the execution environment exposed no interactive browser,
+so reproducible side-by-side captures for every reference could not be archived. The accessible
+official-source review must not be relabelled as the completed named-reference control.
+
 ## Acceptance control
 
 Publication stays blocked until all three official searches have reproducible result captures, the
