@@ -3,11 +3,11 @@ import { describe, expect, test } from "bun:test";
 import { BRAND_MARK_PARTS, BRAND_MARK_VIEW_BOX } from "../src/brand-geometry";
 import { renderBrandMarkSvg, validateBrandAssetPublication } from "./generate-brand-assets";
 
-describe("constructed swift asset", () => {
-  test("uses a compact integer-only geometry from one source", () => {
+describe("workshop gantry asset", () => {
+  test("uses three compact orthogonal integer-grid parts", () => {
     expect(BRAND_MARK_VIEW_BOX).toBe("0 0 24 24");
     expect(BRAND_MARK_PARTS).toHaveLength(3);
-    expect(BRAND_MARK_PARTS.every((path) => !path.includes("."))).toBe(true);
+    expect(BRAND_MARK_PARTS.every((path) => /^[0-9 MHVZ]+$/.test(path))).toBe(true);
   });
 
   test("renders an inert standalone SVG", () => {
