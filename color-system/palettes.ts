@@ -279,7 +279,7 @@ export const CONVERGENCE: PaletteDefinition = {
   description:
     "Un graphite chaud accueille les contenus longs ; un jade minéral porte l’action et la continuité de marque ; un iris ardoise différencie produits, preuves et contributions sans devenir un dégradé IA.",
   advantages: [
-    "Continuité avec le Martinet vert sans conserver le vert de framework historique.",
+    "Continuité par le jade sans conserver le vert de framework historique.",
     "Système crédible pour la documentation comme pour les interfaces d’exploitation.",
     "Secondaire iris assez rare pour différencier le portefeuille sans fragmenter la marque.",
   ],

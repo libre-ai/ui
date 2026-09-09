@@ -8,7 +8,7 @@ Un graphite chaud accueille les contenus longs ; un jade minéral porte l’acti
 
 ## Avantages
 
-- Continuité avec le Martinet vert sans conserver le vert de framework historique.
+- Continuité par le jade sans conserver le vert de framework historique.
 - Système crédible pour la documentation comme pour les interfaces d’exploitation.
 - Secondaire iris assez rare pour différencier le portefeuille sans fragmenter la marque.
 

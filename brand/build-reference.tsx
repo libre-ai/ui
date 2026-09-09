@@ -116,7 +116,10 @@ function renderBody(): string {
 
         <section className="lai-stack" aria-labelledby="do-not-use">
           <h2 id="do-not-use">Do not use</h2>
-          <p>Ne pas déformer le martinet. Ne pas combiner jade et iris dans un dégradé.</p>
+          <p>
+            Ne pas fermer ni déformer le portique. Réserver le jade au bloc de contrôle dans les
+            déclinaisons colorées. Ne pas combiner jade et iris dans un dégradé.
+          </p>
         </section>
       </main>
     </>,

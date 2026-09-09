@@ -13,7 +13,7 @@ sources into `src/tokens.css`, including deterministic sRGB fallbacks, dark and
 forced-color modes. Four earlier directions remain non-normative exploration;
 production components do not import them.
 
-The constructed-swift identity, proof panels and product signatures are exercised through a
+The Workshop Gantry identity, proof panels and product signatures are exercised through a
 deterministic, no-script reference page. Local Playwright qualification covers Chromium, Firefox,
 WebKit, JavaScript-disabled rendering, reduced motion, forced colors, keyboard skip navigation,
 narrow reflow and rendered contrast. Figurative assets remain an unpublished candidate until both
