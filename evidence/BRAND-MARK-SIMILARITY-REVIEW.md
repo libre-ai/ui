@@ -1,13 +1,14 @@
-# Constructed swift similarity review
+# Workshop Gantry similarity review
 
 Status: pending
 
 - Query date: 2026-09-09
 - Candidate: `src/assets/libre-ai-mark.svg`
-- SHA-256: `84cddb947b68770d950c34bddaf33182406de7a4021f22c50cdec34d2898cdbe`
+- SHA-256: `9ae34131a9782349f0d8d8b1939bfc0ed5f00941efaedf9d8a7ee48f08951596`
 - Intended Nice classes for screening: 9 (downloadable software), 42 (software and AI services)
-- Figurative concepts: bird, swift, three geometric parts, opposing wings, central downward tail
-- Text terms: `Libre AI`, `LibreAI`, `swift software`, `bird artificial intelligence`
+- Figurative concepts: workshop gantry, open frame, three orthogonal parts, separated upright,
+  offset control block
+- Text terms: `Libre AI`, `LibreAI`, `workshop gantry software`, `open frame artificial intelligence`
 - Scope statement: visual screening, not legal clearance
 
 ## Official registers
@@ -23,9 +24,10 @@ database. This dossier therefore cannot be accepted from a WIPO-only result.
 
 ## Named visual reference set
 
-The candidate must be compared side by side with bird, wing, chevron and open-source marks used by
-Trail, Proton, Mullvad, Mozilla, Oxide, LaSuite, Mistral, Element, GitLab and Nextcloud. No absence of
-confusion is claimed until the comparison images and reviewer disposition are recorded here.
+The candidate must be compared side by side with frame, gate, workshop, block and open-source marks
+used by Trail, Proton, Mullvad, Mozilla, Oxide, LaSuite, Mistral, Element, GitLab and Nextcloud. No
+absence of confusion is claimed until the comparison images and reviewer disposition are recorded
+here.
 
 ### Official-source pre-screening — 2026-09-09
 
@@ -34,20 +36,21 @@ each named organization. It is design-risk triage, not a registry search or lega
 
 | Reference | Official source | Structural comparison | Risk signal |
 | --- | --- | --- | --- |
-| Trail | https://www.trailhq.com/brand | Maze-like line-drawn `T` built from route switchbacks; the Libre AI candidate is a filled three-part bird. | Low in the reviewed lockups. |
-| Proton | https://proton.me/media/kit | Rounded purple loop/`P` construction; no bird silhouette or central tail. | Low in the reviewed mark. |
+| Trail | https://www.trailhq.com/brand | Maze-like line-drawn `T` built from route switchbacks; the Libre AI candidate uses three filled orthogonal parts and a large open frame. | Low in the reviewed lockups. |
+| Proton | https://proton.me/media/kit | Rounded purple loop/`P` construction; no separated upright or offset control block. | Low in the reviewed mark. |
 | Mullvad | https://mullvad.net/en/press | Circular illustrated mole-and-helmet device with typography; materially different construction and detail density. | Low. |
-| Mozilla | https://blog.mozilla.org/en/mozilla/mozilla-brand-next-era-of-tech/ | Angular `M` flag and pixel motif. The black geometric language can converge with the candidate at very small sizes even though the silhouette differs. | Medium; small-size comparison required. |
-| Oxide | https://oxide.computer/press | Typographic wordmark whose distinctive devices are a slashed zero and multiplication-sign `X`; no standalone bird device observed. | Low. |
+| Mozilla | https://blog.mozilla.org/en/mozilla/mozilla-brand-next-era-of-tech/ | Angular `M` flag and pixel motif. Both can use black orthogonal geometry, but Mozilla is a stepped letter/flag while the candidate is an open asymmetric frame around a detached block. | Low-medium; retain the 16 px comparison. |
+| Oxide | https://oxide.computer/press | Typographic wordmark whose distinctive devices are a slashed zero and multiplication-sign `X`; no open gantry device observed. | Low. |
 | LaSuite | https://lasuite.numerique.gouv.fr/fr | Wordmark and shared service-logo system on the accessible official surface; its image assets lacked sufficiently descriptive labels for a complete shape comparison here. | Unresolved; browser capture still required. |
-| Mistral | https://mistral.ai/brand/ | Pixel cat / `M` emblem. Both marks use an angular animal shorthand, but Mistral is stair-stepped and letter-led rather than wing-and-tail led. | Medium-low; compare in monochrome at 16 px. |
+| Mistral | https://mistral.ai/brand/ | Pixel cat / `M` emblem. Both use compact orthogonal geometry, but Mistral is a stepped, symmetric letter/face while the candidate is an asymmetric open structure. | Medium-low; compare in monochrome at 16 px. |
 | Element | https://element.io/en/logo | Three rounded strokes in a green circular rotation; shares a three-part count but not axis, silhouette or geometry. | Low. |
-| GitLab | https://about.gitlab.com/press/press-kit/ | Symmetric geometric animal with two pointed lateral masses and a central downward point. In monochrome and at favicon size, this is the closest named silhouette to the candidate. | High enough to block acceptance pending redesign or specialist review. |
-| Nextcloud | https://nextcloud.com/brand | Circular cloud/connected-node device; no animal, wing or downward-tail construction. | Low. |
+| GitLab | https://about.gitlab.com/press/press-kit/ | Symmetric geometric animal with two pointed lateral masses and a central downward point. The revised candidate has no animal silhouette, diagonals, paired pointed masses or downward point; its right upright and control block are deliberately offset. | Low in the revised named-reference comparison. |
+| Nextcloud | https://nextcloud.com/brand | Circular cloud/connected-node device; no open orthogonal gantry construction. | Low. |
 
-The GitLab signal is not a finding of infringement. It is a concrete design-quality reason not to
-accept the current mark by default. A revised candidate should break at least two of these shared
-features: bilateral animal symmetry, paired pointed upper masses, and the centered downward point.
+The previous GitLab signal was not a finding of infringement. The Workshop Gantry redesign breaks
+all three structural features that caused it: bilateral animal symmetry, paired pointed upper masses,
+and the centered downward point. This reduces that named design-risk signal; it does not replace an
+official registry search or a specialist clearance opinion.
 
 The comparison remains incomplete because the execution environment exposed no interactive browser,
 so reproducible side-by-side captures for every reference could not be archived. The accessible

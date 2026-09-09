@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { join } from "node:path";
 
 import { BRAND_MARK_PARTS, BRAND_MARK_VIEW_BOX } from "../src/brand-geometry";
@@ -9,6 +10,7 @@ export function renderBrandMarkSvg(): string {
 
 export interface BrandAssetReviewDocuments {
   readonly approval: string;
+  readonly candidateMarkSha256: string;
   readonly similarityReview: string;
 }
 
@@ -27,6 +29,10 @@ function hasExactControl(document: string, field: string, expected: string): boo
   return values.length === 1 && values[0] === expected;
 }
 
+function hasExactSha256Control(document: string, field: string, expected: string): boolean {
+  return /^[0-9a-f]{64}$/.test(expected) && hasExactControl(document, field, `\`${expected}\``);
+}
+
 export function validateBrandAssetPublication(
   documents: BrandAssetReviewDocuments,
 ): readonly string[] {
@@ -35,10 +41,24 @@ export function validateBrandAssetPublication(
     failures.push("brand.asset_license_not_accepted");
   }
   if (
+    !hasExactSha256Control(
+      documents.approval,
+      "- Candidate mark SHA-256",
+      documents.candidateMarkSha256,
+    )
+  ) {
+    failures.push("brand.asset_license_candidate_mismatch");
+  }
+  if (
     !hasExactControl(documents.similarityReview, "Status", "accepted") ||
     !hasExactControl(documents.similarityReview, "Disposition", "owner-accepted")
   ) {
     failures.push("brand.asset_similarity_review_not_accepted");
+  }
+  if (
+    !hasExactSha256Control(documents.similarityReview, "- SHA-256", documents.candidateMarkSha256)
+  ) {
+    failures.push("brand.asset_similarity_candidate_mismatch");
   }
   return failures;
 }
@@ -54,7 +74,14 @@ async function main(): Promise<void> {
     const similarityReview = await Bun.file(
       join(import.meta.dir, "../evidence/BRAND-MARK-SIMILARITY-REVIEW.md"),
     ).text();
-    const failures = validateBrandAssetPublication({ approval, similarityReview });
+    const candidateMarkSha256 = createHash("sha256")
+      .update(await Bun.file(destination).bytes())
+      .digest("hex");
+    const failures = validateBrandAssetPublication({
+      approval,
+      candidateMarkSha256,
+      similarityReview,
+    });
     if (failures.length > 0) throw new Error(failures.join("\n"));
     console.log("Brand asset publication controls are accepted.");
     return;
