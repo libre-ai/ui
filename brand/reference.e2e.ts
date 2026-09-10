@@ -43,6 +43,44 @@ test("reflows at narrow and zoom-equivalent viewports", async ({ page }) => {
   }
 });
 
+test("keeps every part of the 16 px and 24 px marks visible", async ({ page }) => {
+  for (const size of [16, 24]) {
+    const mark = page.getByRole("img", { name: `${size} pixels`, exact: true });
+    await expect(mark).toBeVisible();
+    await expect(mark).toHaveCSS("width", `${size}px`);
+    await expect(mark).toHaveCSS("height", `${size}px`);
+
+    const parts = mark.locator("path");
+    await expect(parts).toHaveCount(3);
+    const markBounds = await mark.boundingBox();
+    expect(markBounds).not.toBeNull();
+    const renderedParts = await parts.evaluateAll((paths) =>
+      paths.map((path) => {
+        const bounds = (path as SVGGraphicsElement).getBoundingClientRect();
+        return {
+          fill: getComputedStyle(path).fill,
+          height: bounds.height,
+          width: bounds.width,
+          x: bounds.x,
+          y: bounds.y,
+        };
+      }),
+    );
+
+    if (markBounds === null) throw new Error("brand.mark_bounds_missing");
+    for (const part of renderedParts) {
+      expect(part.width).toBeGreaterThan(0);
+      expect(part.height).toBeGreaterThan(0);
+      expect(part.fill).not.toBe("none");
+      expect(part.fill).not.toBe("rgba(0, 0, 0, 0)");
+      expect(part.x).toBeGreaterThanOrEqual(markBounds.x);
+      expect(part.y).toBeGreaterThanOrEqual(markBounds.y);
+      expect(part.x + part.width).toBeLessThanOrEqual(markBounds.x + markBounds.width);
+      expect(part.y + part.height).toBeLessThanOrEqual(markBounds.y + markBounds.height);
+    }
+  }
+});
+
 test("keeps critical computed color pairs distinguishable", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "chromium-forced-colors", "System colors are OS-defined");
 

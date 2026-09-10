@@ -45,6 +45,17 @@ bounded Tailwind adapter (`@libre-ai/ui/tailwind`) if you emit utilities at buil
 time. The three-engine Playwright evidence (SSR + hydration, no-JS, PWA offline,
 reduced-motion, security headers) is exercised by the reference chain.
 
+## Contributor checks
+
+Inside an activated Python virtual environment, install the JavaScript dependencies and the pinned
+REUSE requirements before running the aggregate gate:
+
+```sh
+bun install --frozen-lockfile
+python3 -m pip install --disable-pip-version-check --requirement node_modules/@libre-ai/governance/tools/licensing/requirements.txt
+bun run check
+```
+
 ## Publication status
 
 **Publish-ready** (`publishConfig.access=public`): the npm `@libre-ai` scope is

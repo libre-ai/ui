@@ -11,6 +11,14 @@ Status: pending
 - Text terms: `Libre AI`, `LibreAI`, `workshop gantry software`, `open frame artificial intelligence`
 - Scope statement: visual screening, not legal clearance
 
+## Latest execution — 2026-09-10
+
+The dated execution record is `evidence/brand-clearance/2026-09-10/README.md`. It records a real
+16/24 px and forced-colors qualification, the LaSuite asset comparison, and the attempted official
+searches. The official searches remain incomplete: the interactive-browser inventory exposed no
+browser backend, EUIPO refused the non-interactive reader, INPI's API requires an authenticated
+account, and WIPO prohibits automated queries. No absence of conflicting marks is claimed.
+
 ## Official registers
 
 | Register | Official entry point | Work performed | Result |
@@ -41,7 +49,7 @@ each named organization. It is design-risk triage, not a registry search or lega
 | Mullvad | https://mullvad.net/en/press | Circular illustrated mole-and-helmet device with typography; materially different construction and detail density. | Low. |
 | Mozilla | https://blog.mozilla.org/en/mozilla/mozilla-brand-next-era-of-tech/ | Angular `M` flag and pixel motif. Both can use black orthogonal geometry, but Mozilla is a stepped letter/flag while the candidate is an open asymmetric frame around a detached block. | Low-medium; retain the 16 px comparison. |
 | Oxide | https://oxide.computer/press | Typographic wordmark whose distinctive devices are a slashed zero and multiplication-sign `X`; no open gantry device observed. | Low. |
-| LaSuite | https://lasuite.numerique.gouv.fr/fr | Wordmark and shared service-logo system on the accessible official surface; its image assets lacked sufficiently descriptive labels for a complete shape comparison here. | Unresolved; browser capture still required. |
+| LaSuite | https://lasuite.numerique.gouv.fr/fr | Current official SVG retrieved on 2026-09-10 (`e24d5be0…`): blue wordmark between two rounded colored bracket/chevron devices; no orthogonal open frame, detached upright, or offset square control block. | Low; retrieval and structural comparison resolved, registry search still required. |
 | Mistral | https://mistral.ai/brand/ | Pixel cat / `M` emblem. Both use compact orthogonal geometry, but Mistral is a stepped, symmetric letter/face while the candidate is an asymmetric open structure. | Medium-low; compare in monochrome at 16 px. |
 | Element | https://element.io/en/logo | Three rounded strokes in a green circular rotation; shares a three-part count but not axis, silhouette or geometry. | Low. |
 | GitLab | https://about.gitlab.com/press/press-kit/ | Symmetric geometric animal with two pointed lateral masses and a central downward point. The revised candidate has no animal silhouette, diagonals, paired pointed masses or downward point; its right upright and control block are deliberately offset. | Low in the revised named-reference comparison. |
