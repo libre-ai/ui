@@ -69,7 +69,7 @@ types resolve from the shipped source. The `dist/` is a release-time artifact
 - Exposition : spec-published
 - Confiance : medium
 - Preuves vérifiées le : 2026-09-09
-- Avancement : 67 % du périmètre actuellement déclaré
+- Avancement : 66,7 % du périmètre actuellement déclaré
 
 <!-- libre-ai:project-status:end -->
 
