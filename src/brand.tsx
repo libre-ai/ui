@@ -20,7 +20,13 @@ export interface BrandMarkProps extends Omit<SVGProps<SVGSVGElement>, "aria-labe
   accessibleName: string | null;
 }
 
-export function BrandMark({ accessibleName, className = "", ...props }: BrandMarkProps) {
+export function BrandMark({
+  accessibleName,
+  className = "",
+  height = "1.5em",
+  width = "1.5em",
+  ...props
+}: BrandMarkProps) {
   const paths = BRAND_MARK_PARTS.map((path) => <path d={path} key={path} />);
 
   if (accessibleName === null) {
@@ -31,7 +37,9 @@ export function BrandMark({ accessibleName, className = "", ...props }: BrandMar
         className={`lai-brand-mark ${className}`.trim()}
         fill="currentColor"
         focusable="false"
+        height={height}
         viewBox={BRAND_MARK_VIEW_BOX}
+        width={width}
         xmlns="http://www.w3.org/2000/svg"
       >
         {paths}
@@ -45,8 +53,10 @@ export function BrandMark({ accessibleName, className = "", ...props }: BrandMar
       aria-label={accessibleName}
       className={`lai-brand-mark ${className}`.trim()}
       fill="currentColor"
+      height={height}
       role="img"
       viewBox={BRAND_MARK_VIEW_BOX}
+      width={width}
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>{accessibleName}</title>

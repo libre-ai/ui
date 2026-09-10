@@ -15,6 +15,18 @@ describe("brand identity components", () => {
     expect(named).toContain("<title>Libre AI</title>");
   });
 
+  test("uses the default mark size without overriding explicit dimensions", () => {
+    const defaultMark = renderToStaticMarkup(<BrandMark accessibleName={null} />);
+    const smallMark = renderToStaticMarkup(
+      <BrandMark accessibleName="16 pixels" height={16} width={16} />,
+    );
+
+    expect(defaultMark).toContain('height="1.5em"');
+    expect(defaultMark).toContain('width="1.5em"');
+    expect(smallMark).toContain('height="16"');
+    expect(smallMark).toContain('width="16"');
+  });
+
   test("keeps the organization and product names as text", () => {
     const markup = renderToStaticMarkup(<BrandLockup product="Memo" />);
 
