@@ -1,4 +1,4 @@
-# Workshop Gantry qualification run — 2026-09-10
+# Portique d'atelier / Workshop Gantry qualification run — 2026-09-10
 
 - Executed at: `2026-09-10T08:33:57Z`
 - Candidate SHA-256: `9ae34131a9782349f0d8d8b1939bfc0ed5f00941efaedf9d8a7ee48f08951596`

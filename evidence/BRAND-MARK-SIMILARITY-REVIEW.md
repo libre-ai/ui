@@ -1,4 +1,4 @@
-# Workshop Gantry similarity review
+# Portique d'atelier / Workshop Gantry similarity review
 
 Status: pending
 
@@ -6,8 +6,8 @@ Status: pending
 - Candidate: `src/assets/libre-ai-mark.svg`
 - SHA-256: `9ae34131a9782349f0d8d8b1939bfc0ed5f00941efaedf9d8a7ee48f08951596`
 - Intended Nice classes for screening: 9 (downloadable software), 42 (software and AI services)
-- Figurative concepts: workshop gantry, open frame, three orthogonal parts, separated upright,
-  offset control block
+- Figurative concepts: Portique d'atelier / Workshop Gantry, open frame, three orthogonal parts,
+  separated upright, offset control block
 - Text terms: `Libre AI`, `LibreAI`, `workshop gantry software`, `open frame artificial intelligence`
 - Scope statement: visual screening, not legal clearance
 
